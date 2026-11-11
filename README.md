@@ -1,18 +1,18 @@
-# Page Sketch
+# Web Doodle
 
 **A transparent drawing sheet you can lay over any web page.**
 
-Click the toolbar icon and Page Sketch drops a clear sheet on top of the page you're viewing. You can scribble, highlight, draw lines, arrows and shapes, or type notes, including in **10 Indian languages**. When you're done, clear the sheet or switch it off and every mark disappears. The page itself is never changed.
+Click the toolbar icon and Web Doodle drops a clear sheet on top of the page you're viewing. You can scribble, highlight, draw lines, arrows and shapes, or type notes, including in **10 Indian languages**. When you're done, clear the sheet or switch it off and every mark disappears. The page itself is never changed.
 
 Works in **Google Chrome, Microsoft Edge, Brave** (and other Chromium browsers) and **Mozilla Firefox**.
 
-![Page Sketch in action: the sheet goes on, text is typed, lines and shapes are drawn, then the sheet is cleared and removed](docs/page-sketch-demo.gif)
+![Web Doodle in action: the sheet goes on, text is typed, lines and shapes are drawn, then the sheet is cleared and removed](docs/web-doodle-demo.gif)
 
 ---
 
 ## Contents
 
-- [Why Page Sketch?](#why-page-sketch)
+- [Why Web Doodle?](#why-web-doodle)
 - [Features](#features)
 - [Install](#install)
 - [How to use](#how-to-use)
@@ -31,11 +31,11 @@ Works in **Google Chrome, Microsoft Edge, Brave** (and other Chromium browsers) 
 
 ---
 
-## Why Page Sketch?
+## Why Web Doodle?
 
-Sometimes you just want to **point at something** on a web page: circle a number during a screen-share, underline a sentence while teaching, sketch an idea on a design review, or mark up a page before taking a screenshot. Page Sketch gives you a whiteboard pen for the web. It's temporary by design: nothing is saved, nothing is sent anywhere, and turning it off leaves the page exactly as it was.
+Sometimes you just want to **point at something** on a web page: circle a number during a screen-share, underline a sentence while teaching, sketch an idea on a design review, or mark up a page before taking a screenshot. Web Doodle gives you a whiteboard pen for the web. It's temporary by design: nothing is saved, nothing is sent anywhere, and turning it off leaves the page exactly as it was.
 
-| Before | With Page Sketch |
+| Before | With Web Doodle |
 |---|---|
 | ![A tech blog page before annotating](docs/before.png) | ![The same page annotated with text, an arrow, a circle, a highlight and a rectangle](docs/annotated.png) |
 
@@ -68,14 +68,14 @@ The extension isn't on the browser stores yet, so you load it from this folder. 
    - Edge: `edge://extensions`
    - Brave: `brave://extensions`
 3. Turn on **Developer mode** (top-right in Chrome/Brave, left sidebar in Edge).
-4. Click **Load unpacked** and select the `page-sketch-extension` folder (the one that contains `manifest.json`).
-5. Click the puzzle-piece icon in the toolbar and **pin** Page Sketch so the icon is always visible.
+4. Click **Load unpacked** and select the `web-doodle` folder (the one that contains `manifest.json`).
+5. Click the puzzle-piece icon in the toolbar and **pin** Web Doodle so the icon is always visible.
 
 ### Mozilla Firefox (version 121 or newer)
 
 1. Open `about:debugging#/runtime/this-firefox`.
 2. Click **Load Temporary Add-on…**
-3. Select the `manifest.json` file inside the `page-sketch-extension` folder.
+3. Select the `manifest.json` file inside the `web-doodle` folder.
 
 > **Note:** Firefox removes temporary add-ons when it restarts. For a permanent install the extension has to be signed through [addons.mozilla.org](https://addons.mozilla.org/developers/) (see [Packaging](#packaging-for-the-browser-stores)).
 
@@ -83,7 +83,7 @@ The extension isn't on the browser stores yet, so you load it from this folder. 
 
 ### 1. Put the sheet on
 
-Click the **Page Sketch** icon in the browser toolbar, or press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>. A transparent sheet with a thin blue border covers the page, and a small toolbar appears at the top. The icon shows an **ON** badge while the sheet is active.
+Click the **Web Doodle** icon in the browser toolbar, or press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>. A transparent sheet with a thin blue border covers the page, and a small toolbar appears at the top. The icon shows an **ON** badge while the sheet is active.
 
 ![Turning the sheet on and off](docs/sheet-on-off.gif)
 
@@ -177,7 +177,7 @@ Notes for specific languages:
 - **Tamil and Malayalam:** a consonant at the end of a word gets a pulli/chandrakkala automatically (`vaNakkam` → வணக்கம்). Use `zh` for ழ/ഴ and `rr` for ற/റ. In Tamil, aspirated and voiced letters fall back to the nearest Tamil letter (`kh`, `g` → க).
 - **Telugu, Kannada, Malayalam, Tamil:** `e`/`o` are short (ె, ొ) and `E`/`O` are long (ే, ో).
 - **Urdu:** phonetic Roman-Urdu (`kh` خ, `gh` غ, `q` ق, `R` ڑ, `N` ں). Short vowels inside a word are left out, as in normal Urdu writing. The result is a close approximation, so check longer words.
-- **Already have an Indian keyboard or IME** (Windows, macOS, Google Input Tools…)? Choose **English** in the list and type with your own keyboard. Page Sketch accepts any script.
+- **Already have an Indian keyboard or IME** (Windows, macOS, Google Input Tools…)? Choose **English** in the list and type with your own keyboard. Web Doodle accepts any script.
 
 Your language choice is remembered for next time.
 
@@ -205,7 +205,7 @@ To change the toggle shortcut: `chrome://extensions/shortcuts` (Chrome/Brave), `
 
 ## Privacy
 
-- Page Sketch runs **only on the tab where you click it**, and only when you click it. It uses the browser's `activeTab` permission, so it can't read other tabs or run in the background.
+- Web Doodle runs **only on the tab where you click it**, and only when you click it. It uses the browser's `activeTab` permission, so it can't read other tabs or run in the background.
 - It makes **no network requests** and collects no data.
 - Your drawings exist only in the page's memory and are thrown away when you close the sheet, reload or navigate away.
 - The only thing stored is your chosen text language (`storage` permission), kept locally in your browser.
@@ -229,16 +229,16 @@ To change the toggle shortcut: `chrome://extensions/shortcuts` (Chrome/Brave), `
 Create a zip of just the extension files (without `docs/`):
 
 ```powershell
-Compress-Archive -Path manifest.json,background.js,content.js,translit.js,icons -DestinationPath page-sketch.zip -Force
+Compress-Archive -Path manifest.json,background.js,content.js,translit.js,icons -DestinationPath web-doodle.zip -Force
 ```
 
-- **Chrome Web Store / Edge Add-ons:** upload `page-sketch.zip` in the developer dashboard. Brave installs extensions from the Chrome Web Store.
-- **Firefox Add-ons (AMO):** upload the same zip. Before submitting, change the add-on ID `page-sketch@example.com` in `manifest.json` to one you own.
+- **Chrome Web Store / Edge Add-ons:** upload `web-doodle.zip` in the developer dashboard. Brave installs extensions from the Chrome Web Store.
+- **Firefox Add-ons (AMO):** upload the same zip. Before submitting, change the add-on ID `web-doodle@example.com` in `manifest.json` to one you own.
 
 ## Project files
 
 ```
-page-sketch-extension/
+web-doodle/
 ├── manifest.json      Extension manifest (Chrome, Edge, Brave, Firefox)
 ├── background.js      Toggles the sheet and shows the ON badge
 ├── content.js         The transparent sheet, toolbar and drawing tools

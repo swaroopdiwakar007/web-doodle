@@ -24,7 +24,7 @@ ext.action.onClicked.addListener(async (tab) => {
     setBadge(tab.id, !!(res && res.result));
   } catch (err) {
     // Browsers block extensions on internal pages (chrome://, about:, web stores…)
-    console.warn('Page Sketch cannot run on this page:', err);
+    console.warn('Web Doodle cannot run on this page:', err);
     quiet(ext.action.setBadgeText({ tabId: tab.id, text: '✕' }));
     quiet(ext.action.setBadgeBackgroundColor({ tabId: tab.id, color: '#8e8e93' }));
     setTimeout(() => setBadge(tab.id, false), 1500);
@@ -33,7 +33,7 @@ ext.action.onClicked.addListener(async (tab) => {
 
 // The sheet can also be closed from inside the page (close button / Esc).
 ext.runtime.onMessage.addListener((msg, sender) => {
-  if (msg && msg.type === 'pagesketch-state' && sender.tab) {
+  if (msg && msg.type === 'webdoodle-state' && sender.tab) {
     setBadge(sender.tab.id, msg.active);
   }
 });

@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Page Sketch",
+  "name": "Web Doodle",
   "version": "1.0.0",
   "description": "Throw a temporary transparent sheet over any web page to draw, highlight, add shapes, arrows and text (incl. Indian languages).",
   "permissions": ["activeTab", "scripting", "storage"],
@@ -9,7 +9,7 @@
     "scripts": ["background.js"]
   },
   "action": {
-    "default_title": "Toggle Page Sketch (Alt+Shift+D)",
+    "default_title": "Toggle Web Doodle (Alt+Shift+D)",
     "default_icon": {
       "16": "icons/icon16.png",
       "32": "icons/icon32.png",
@@ -33,7 +33,7 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "page-sketch@example.com",
+      "id": "web-doodle@example.com",
       "strict_min_version": "121.0"
     }
   }

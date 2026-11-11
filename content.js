@@ -1,15 +1,15 @@
-// Page Sketch — the transparent drawing sheet.
+// Web Doodle — the transparent drawing sheet.
 // Injected on demand; running it again toggles the sheet off. Closing the
 // sheet removes it and everything drawn on it.
 (() => {
-  if (window.__pageSketch) return window.__pageSketch.toggle();
+  if (window.__webDoodle) return window.__webDoodle.toggle();
 
   const ext = globalThis.browser || globalThis.chrome;
   let session = null;
 
   function notify(active) {
     try {
-      const p = ext && ext.runtime && ext.runtime.sendMessage({ type: 'pagesketch-state', active });
+      const p = ext && ext.runtime && ext.runtime.sendMessage({ type: 'webdoodle-state', active });
       if (p && p.catch) p.catch(() => {});
     } catch (_) {}
   }
@@ -19,8 +19,8 @@
   }
   function open() { session = createSession(close); return true; }
 
-  window.__pageSketch = { toggle: () => (session ? close() : open()) };
-  return window.__pageSketch.toggle();
+  window.__webDoodle = { toggle: () => (session ? close() : open()) };
+  return window.__webDoodle.toggle();
 
   // ---------------------------------------------------------------------------
   function createSession(requestClose) {
@@ -112,7 +112,7 @@
 
     // ---- DOM ----------------------------------------------------------------
     const host = document.createElement('div');
-    host.setAttribute('data-page-sketch', '');
+    host.setAttribute('data-web-doodle', '');
     host.style.cssText = 'all:initial;position:fixed;inset:0;z-index:2147483647;pointer-events:none;';
     const root = host.attachShadow({ mode: 'closed' });
 
@@ -124,7 +124,7 @@
       <div class="wrap">
         <canvas class="sheet"></canvas>
         <div class="frame"></div>
-        <div class="bar mini" role="toolbar" aria-label="Page Sketch">
+        <div class="bar mini" role="toolbar" aria-label="Web Doodle">
           <div class="grip" data-mini title="Drag to move"></div>
           ${TOOLS.map(([id, title]) => `<button data-tool="${id}" ${MINI_TOOLS.includes(id) ? 'data-mini' : ''} title="${title}">${ICONS[id]}</button>`).join('')}
           <div class="sep"></div>
@@ -577,7 +577,7 @@
       langSelect.value = id;
       styleEditor();
       if (save) {
-        try { const p = ext && ext.storage && ext.storage.local.set({ pageSketchLang: id }); if (p && p.catch) p.catch(() => {}); } catch (_) {}
+        try { const p = ext && ext.storage && ext.storage.local.set({ webDoodleLang: id }); if (p && p.catch) p.catch(() => {}); } catch (_) {}
       }
     }
 
@@ -654,8 +654,8 @@
     setExpanded(false);
     setLang('en');
     try {
-      const p = ext && ext.storage && ext.storage.local.get('pageSketchLang');
-      if (p && p.then) p.then((r) => { if (r && r.pageSketchLang) setLang(r.pageSketchLang); }).catch(() => {});
+      const p = ext && ext.storage && ext.storage.local.get('webDoodleLang');
+      if (p && p.then) p.then((r) => { if (r && r.webDoodleLang) setLang(r.webDoodleLang); }).catch(() => {});
     } catch (_) {}
     resize();
 
