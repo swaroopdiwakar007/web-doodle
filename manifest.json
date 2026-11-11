@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Page Sketch",
+  "version": "1.0.0",
+  "description": "Throw a temporary transparent sheet over any web page to draw, highlight, add shapes, arrows and text (incl. Indian languages).",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "background": {
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "Toggle Page Sketch (Alt+Shift+D)",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+D"
+      },
+      "description": "Toggle the drawing sheet on the current page"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "page-sketch@example.com",
+      "strict_min_version": "121.0"
+    }
+  }
+}
