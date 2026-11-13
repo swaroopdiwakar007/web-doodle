@@ -246,3 +246,7 @@ web-doodle/
 ├── icons/             Toolbar and store icons (16, 32, 48, 128 px)
 └── docs/              Screenshots and GIFs used in this README
 ```
+
+## License
+
+Released under the [MIT License](LICENSE). You can use, copy, change and share it freely, including in commercial projects, as long as you keep the copyright and license notice.
